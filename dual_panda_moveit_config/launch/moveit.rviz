@@ -38,6 +38,24 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /interactive_robot_markers
+      Name: Marker
+      Namespaces:
+        goal_marker: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /interactive_robot_marray
+      Name: MarkerArray
+      Namespaces:
+        box=panda_rightfinger: true
+        panda_hand=panda_link5: true
+        panda_link5=panda_link7: true
+      Queue Size: 100
+      Value: true
     - Acceleration_Scaling_Factor: 1
       Class: moveit_rviz_plugin/MotionPlanning
       Enabled: true

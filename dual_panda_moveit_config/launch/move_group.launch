@@ -19,6 +19,12 @@
   <arg name="max_safe_path_cost" default="1"/>
   <arg name="publish_monitored_planning_scene" default="true"/>
 
+  <!-- <arg name="allow_trajectory_execution" default="true"/> -->
+  <arg name="fake_execution" default="false"/>
+  <!-- <arg name="max_safe_path_cost" default="1"/> -->
+  <arg name="jiggle_fraction" default="0.05" />
+  <!-- <arg name="publish_monitored_planning_scene" default="true"/> -->
+
   <arg name="capabilities" default=""/>
   <arg name="disable_capabilities" default=""/>
   <!-- load these non-default MoveGroup capabilities (space seperated) -->
@@ -56,13 +62,18 @@
       <arg name="pipeline" value="chomp" />
     </include>
 
+     <!-- STOMP -->
+    <include file="$(dirname)/planning_pipeline.launch.xml">
+      <arg name="pipeline" value="stomp" />
+    </include>
+
     <!-- Pilz Industrial Motion -->
     <include file="$(dirname)/planning_pipeline.launch.xml">
       <arg name="pipeline" value="pilz_industrial_motion_planner" />
     </include>
 
     <!-- Support custom planning pipeline -->
-    <include if="$(eval arg('pipeline') not in ['ompl', 'chomp', 'pilz_industrial_motion_planner'])"
+    <include if="$(eval arg('pipeline') not in ['ompl', 'chomp', 'pilz_industrial_motion_planner', 'stomp'])"
              file="$(dirname)/planning_pipeline.launch.xml">
       <arg name="pipeline" value="$(arg pipeline)" />
     </include>
