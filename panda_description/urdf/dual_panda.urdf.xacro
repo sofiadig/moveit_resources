@@ -11,12 +11,12 @@
   <!-- box shaped table as base for the 2 Pandas -->
   <link name="base">
     <visual>
-      <origin xyz="0.09 0 0.5" rpy="0 0 0" />
+      <origin xyz="0.29 0 0.5" rpy="0 0 0" />
       <geometry>
-        <box size="0.8 1.6 1" />
+        <box size="1.2 1.6 1" />
       </geometry>
       <material name="White">
-        <color rgba="1.0 1.0 1.0 1.0" />
+        <color rgba="1.0 1.0 1.0 0.7" />
       </material>
     </visual>
     <collision>
